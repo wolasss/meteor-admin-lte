@@ -8,15 +8,18 @@ var screenSizes = {
 Template.AdminLTE.onCreated(function () {
   var self = this;
   var skin = 'blue';
+  var transitionDuration = 1000;
   var fixed = false;
   var sidebarMini = false;
 
   if (this.data) {
     skin = this.data.skin || skin;
+    transitionDuration = parseInt(this.data.transitionDuration, 10) || transitionDuration;
     fixed = this.data.fixed || fixed;
     sidebarMini = this.data.sidebarMini || sidebarMini;
   }
 
+  self.isFinishedLoading = new ReactiveVar(false); //needed for transition
   self.isReady = new ReactiveVar(false);
   self.style = waitOnCSS(cssUrl());
   self.skin = waitOnCSS(skinUrl(skin));
@@ -30,7 +33,12 @@ Template.AdminLTE.onCreated(function () {
 
   this.autorun(function () {
     if (self.style.ready() && self.skin.ready()) {
-      self.isReady.set(true);
+
+      self.isFinishedLoading.set(true);
+
+      setTimeout(function() {
+          self.isReady.set(true);
+      }, transitionDuration);
     }
   });
 });
@@ -44,6 +52,10 @@ Template.AdminLTE.onDestroyed(function () {
 Template.AdminLTE.helpers({
   isReady: function () {
     return Template.instance().isReady.get();
+  },
+
+  isFinishedLoading: function () {
+    return Template.instance().isFinishedLoading.get();
   },
 
   loadingTemplate: function () {

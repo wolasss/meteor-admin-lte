@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'mfactory:admin-lte',
-  version: '0.0.2',
+  name: 'wolas:admin-lte',
+  version: '0.0.3',
   summary: 'AdminLTE dashboard theme',
-  git: 'https://github.com/meteor-factory/meteor-admin-lte.git',
+  git: 'https://github.com/wolasss/meteor-admin-lte',
   documentation: 'README.md'
 });
 
