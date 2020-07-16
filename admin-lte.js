@@ -133,12 +133,11 @@ Template.AdminLTE.events({
 });
 
 function cssUrl () {
-  return Meteor.absoluteUrl('packages/wolas_admin-lte/css/AdminLTE.min.css');
+  return '/packages/wolas_admin-lte/css/AdminLTE.min.css';
 }
 
 function skinUrl (name) {
-  return Meteor.absoluteUrl(
-    'packages/wolas_admin-lte/css/skins/skin-' + name + '.min.css');
+  return '/packages/wolas_admin-lte/css/skins/skin-' + name + '.min.css';
 }
 
 function waitOnCSS (url, timeout) {

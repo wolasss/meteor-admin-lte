@@ -1,6 +1,6 @@
 Package.describe({
   name: 'wolas:admin-lte',
-  version: '0.0.5',
+  version: '0.0.6',
   summary: 'AdminLTE dashboard theme',
   git: 'https://github.com/wolasss/meteor-admin-lte',
   documentation: 'README.md'
